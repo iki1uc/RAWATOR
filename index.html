@@ -2,31 +2,32 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <title>PRIMidORDIUM-36 – Layer Demo</title>
+  <title>PRIMidORDIUM-36 – Universal Layer</title>
   <style>
-    body { margin:0; background:#000; color:#0f0; font-family:monospace; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; }
-    #stage { width:260px; height:260px; position:relative; }
+    body { margin:0; background:#000; color:#0f0; font-family:monospace;
+           display:flex; flex-direction:column; align-items:center; justify-content:center;
+           height:100vh; }
+    #stage { width:300px; height:300px; position:relative; }
     .cell {
-      position:absolute;
-      width:40px; height:40px;
-      border:1px solid #0f0;
-      box-sizing:border-box;
+      position:absolute; width:40px; height:40px; border:1px solid #0f0;
       display:flex; align-items:center; justify-content:center;
-      font-size:10px;
-      transition:all 0.8s ease;
+      font-size:10px; transition:all .8s ease;
     }
-    #info { margin-top:16px; text-align:center; font-size:12px; line-height:1.4; }
+    #info { margin-top:20px; text-align:center; font-size:12px; }
+    #version { margin-top:10px; opacity:.6; }
   </style>
 </head>
 <body>
+
   <div id="stage"></div>
   <div id="info"></div>
+  <div id="version">v001</div>
 
   <script>
     const stage = document.getElementById('stage');
     const info  = document.getElementById('info');
 
-    // 36 Einheiten
+    // 36E – Grundalphabet
     const cells = [];
     for (let i = 0; i < 36; i++) {
       const c = document.createElement('div');
@@ -36,50 +37,50 @@
       cells.push(c);
     }
 
+    // 6E – außen/innen Umschaltung
+    let mode = "aussen"; // default
+
     function chaos() {
       cells.forEach(c => {
-        c.style.left = (Math.random() * 220) + 'px';
-        c.style.top  = (Math.random() * 220) + 'px';
+        c.style.left = (Math.random() * 260) + 'px';
+        c.style.top  = (Math.random() * 260) + 'px';
       });
-      info.textContent = 'Zustand: CHAOS · 36E · 6E-Stand möglich · 16 Seiten Druck';
+      info.textContent = "CHAOS · 36E · 6E-" + mode + " · 16 Seiten Druck";
     }
 
-    function fourRig() {
-      const size = 3; // 3x3 pro Quadrant = 9*4 = 36
-      const cellSize = 40;
+    function sixE() {
+      const r = mode === "aussen" ? 120 : 40;
+      const cx = 130, cy = 130;
       cells.forEach((c, i) => {
-        const q = Math.floor(i / 9);      // 0..3 Quadrant
-        const p = i % 9;                  // 0..8 Position im Quadrant
-        const row = Math.floor(p / size); // 0..2
-        const col = p % size;             // 0..2
-
-        const offsetX = (q % 2) * (cellSize * size + 10);
-        const offsetY = Math.floor(q / 2) * (cellSize * size + 10);
-
-        c.style.left = (offsetX + col * cellSize) + 'px';
-        c.style.top  = (offsetY + row * cellSize) + 'px';
+        const a = (i / 36) * Math.PI * 2;
+        c.style.left = (cx + Math.cos(a) * r) + "px";
+        c.style.top  = (cy + Math.sin(a) * r) + "px";
       });
-      info.textContent = 'Zustand: 4-RIG · Q1 Q2 Q3 Q4 · 36E im Zusammenspiel';
+      info.textContent = "6E-" + mode + " · 36E im Zusammenspiel";
     }
 
     function root() {
-      const centerX = 110;
-      const centerY = 110;
+      const cx = 130, cy = 130;
       cells.forEach((c, i) => {
-        const angle = (i / 36) * Math.PI * 2;
-        const r = 40;
-        c.style.left = (centerX + Math.cos(angle) * r) + 'px';
-        c.style.top  = (centerY + Math.sin(angle) * r) + 'px';
+        const a = (i / 36) * Math.PI * 2;
+        const r = 20;
+        c.style.left = (cx + Math.cos(a) * r) + "px";
+        c.style.top  = (cy + Math.sin(a) * r) + "px";
       });
-      info.textContent =
-        'Zustand: ROOT (1=3) · Orbit: 12/50 · Korrektur: 1 Schritt · Pool: 12/100';
+      info.textContent = "ROOT (1=3) · Orbit 12/50 · Korrektur 1 Schritt";
     }
 
-    // 3-Sekunden-Clip: CHAOS → 4-RIG → ROOT
+    // 3‑Sekunden‑Universal‑Layer
     chaos();
-    setTimeout(fourRig, 1000);
+    setTimeout(sixE, 1000);
     setTimeout(root, 2000);
+
+    // Umschalten 6E außen/innen
+    document.body.addEventListener("click", () => {
+      mode = mode === "aussen" ? "innen" : "aussen";
+      sixE();
+    });
   </script>
+
 </body>
 </html>
-
