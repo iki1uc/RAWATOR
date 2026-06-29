@@ -1,1 +1,14 @@
+{
+  "id": "beam-x",
+  "repo": "scan",
+  "item": "beam.json",
+  "axis": 360,
+  "layer": "ui-engine",
+  "x4": true,
+  "state": "active",
+  "resume": "on-fly",
+  "suspend": "disk",
+  "upd": "token",
+  "nc": "neutral"
+}
 
