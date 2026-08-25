@@ -71,6 +71,12 @@
 
     console.log("ONLINE‑OK + AUTO‑VERSION aktiv");
   </script>
+<script type="module">
+import { BEAM_KERNEL } from "./beam.js";
+import { RAWATOR_START } from "./rawator.js";
+
+BEAM_KERNEL().then(() => RAWATOR_START());
+</script>
 
 </body>
 </html>
