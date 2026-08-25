@@ -74,6 +74,12 @@
 <script type="module">
 import { BEAM_KERNEL } from "./beam.js";
 import { RAWATOR_START } from "./rawator.js";
+<script type="module">
+import { NC_ATOM_UNIVERSE } from "./nc-atom.js";
+
+const atoms = NC_ATOM_UNIVERSE();
+console.log("NC‑ATOM‑UNIVERSUM:", atoms);
+</script>
 
 BEAM_KERNEL().then(() => RAWATOR_START());
 </script>
