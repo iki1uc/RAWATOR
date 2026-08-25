@@ -369,18 +369,17 @@ window.showEditor = function() {
     log('✏️ EDITOR bereit');
 };
 
-window.editorReset = function() {
-    RAWATOR_LIFE.editor.reset();
-    document.getElementById('messgeraet-output').textContent = '⟲ EDITOR RESET · Alle Werte neu generiert';
-    updateUI();
-    log('⟲ EDITOR RESET');
-};
+<script type="module">
+import { RAWATOR_LIFE } from './rawator-life.js';
 
-// ─── INIT ────────────────────────────────────────────────────
+// RAWATOR starten
+RAWATOR_LIFE.init();
+
+// UI aktualisieren
 updateUI();
 log('🧬 RAWATOR · LEBENDIG · 81-HOLOGRAMM · ANIME · SHUFFLE geladen');
-console.log('⌨️  Buttons: Vital, CO₂, Wasser, O₂, Anime, Shuffle, Hologramm, Dance, Messgerät, Editor');
-RAWATOR_LIFE.init();
+console.log('⌨️ Buttons bereit');
+</script>
 script>
 </body>
 </html>
