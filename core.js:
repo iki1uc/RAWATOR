@@ -8,3 +8,12 @@ window.SYS.ROOM.RAWATOR = {
 };
 
 console.log("RAWATOR → ID + GEO registriert");
+import { AXIOM } from "./axiom.js";
+
+window.SYS.PIPE.AXIOM = {
+    mana: AXIOM.MANA(),
+    aura: AXIOM.AURA(),
+    kraft: AXIOM.KRAFT()
+};
+
+console.log("CORE → Axiome in Pipeline eingehängt");
