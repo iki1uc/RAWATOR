@@ -1,15 +1,35 @@
+// ============================================================
+// CORE · RAWATOR + AXIOM Integration
+// IKI1UC · SYS3-6-9 · NC · RESPO · HOLO
+// ============================================================
+
 import RAWATOR_ID from "./RAWATOR.id.json" assert { type: "json" };
 import RAWATOR_GEO from "./RAWATOR.geo.json" assert { type: "json" };
+import { RAWATOR_LIFE } from "./rawator-life.js";
+import { AXIOM } from "./axiom.js";
 
+// ─────────────────────────────────────────────────────────────
+// 1. Sicherstellen, dass SYS existiert
+// ─────────────────────────────────────────────────────────────
+window.SYS = window.SYS || {};
+window.SYS.ROOM = window.SYS.ROOM || {};
+window.SYS.PIPE = window.SYS.PIPE || { pipe3: [], pipe6: [], pipe9: [] };
+
+// ─────────────────────────────────────────────────────────────
+// 2. RAWATOR registrieren
+// ─────────────────────────────────────────────────────────────
 window.SYS.ROOM.RAWATOR = {
     id: RAWATOR_ID,
     geo: RAWATOR_GEO,
-    life: RAWATOR_LIFE
+    life: RAWATOR_LIFE,
+    status: "active"
 };
 
-console.log("RAWATOR → ID + GEO registriert");
-import { AXIOM } from "./axiom.js";
+console.log("CORE → RAWATOR ID + GEO registriert");
 
+// ─────────────────────────────────────────────────────────────
+// 3. AXIOM registrieren
+// ─────────────────────────────────────────────────────────────
 window.SYS.PIPE.AXIOM = {
     mana: AXIOM.MANA(),
     aura: AXIOM.AURA(),
@@ -17,3 +37,36 @@ window.SYS.PIPE.AXIOM = {
 };
 
 console.log("CORE → Axiome in Pipeline eingehängt");
+
+// ─────────────────────────────────────────────────────────────
+// 4. DeepSeek‑Pipeline: RAWATOR in pipe3/pipe6/pipe9 einhängen
+// ─────────────────────────────────────────────────────────────
+window.SYS.PIPE.pipe3.push("RAWATOR");
+window.SYS.PIPE.pipe6.push("RAWATOR");
+window.SYS.PIPE.pipe9.push("RAWATOR");
+
+console.log("CORE → RAWATOR in pipe3/pipe6/pipe9 eingehängt");
+
+// ─────────────────────────────────────────────────────────────
+// 5. NC‑Integration
+// ─────────────────────────────────────────────────────────────
+window.SYS.ROOM.NC = window.SYS.ROOM.NC || {};
+window.SYS.ROOM.NC.RAWATOR = {
+    orbit: RAWATOR_GEO.position?.orbit || 4,
+    vital: RAWATOR_LIFE.vital,
+    holo: RAWATOR_LIFE.hologramm
+};
+
+console.log("CORE → RAWATOR in NC‑Raum eingehängt");
+
+// ─────────────────────────────────────────────────────────────
+// 6. RESPO‑Integration
+// ─────────────────────────────────────────────────────────────
+window.SYS.ROOM.RESPO = window.SYS.ROOM.RESPO || {};
+window.SYS.ROOM.RESPO.RAWATOR = {
+    pulse: AXIOM.MANA().pulse(),
+    field: AXIOM.AURA().resonance(),
+    impact: AXIOM.KRAFT().impulse()
+};
+
+console.log("CORE → RAWATOR in RESPO‑Raum eingehängt");
