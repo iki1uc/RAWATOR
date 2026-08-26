@@ -1,0 +1,10 @@
+import RAWATOR_ID from "./RAWATOR.id.json" assert { type: "json" };
+import RAWATOR_GEO from "./RAWATOR.geo.json" assert { type: "json" };
+
+window.SYS.ROOM.RAWATOR = {
+    id: RAWATOR_ID,
+    geo: RAWATOR_GEO,
+    life: RAWATOR_LIFE
+};
+
+console.log("RAWATOR → ID + GEO registriert");
