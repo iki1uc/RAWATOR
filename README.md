@@ -1,112 +1,188 @@
-RAWATOR — RAW‑Konvertierungsmodul der Public‑Ebene
-RAWATOR ist ein Public‑Konvertermodul innerhalb der iki1uc‑Struktur.
-Es dient der Umwandlung, Sichtbarmachung und Bereitstellung von RAW‑Material, ohne Logik, ohne Engine‑Bindung und ohne automatische Ausführung.
-RAWATOR ist vollständig neutral, konfliktfrei und MARKT‑3‑kompatibel.
+# 🧬 RAWATOR · 81‑HOLOGRAMM · ANIME · SHUFFLE · NC‑ENGINE
 
-🟦 Öffentlicher Zweck
-RAWATOR stellt die Public‑RAW‑Schicht bereit:
+RAWATOR ist ein lebendiges 81‑Hologramm‑System, das Moleküle, Vitalität,
+Anime‑Frames, Shuffle‑Bewegung und eine universelle Editor‑Engine vereint.
+Es ist vollständig kompatibel mit IKI1UC, SYS3‑6‑9, NC‑Engine, RESPO‑Räumen
+und DeepSeek‑Pipeline‑Strukturen.
 
-RAW‑Konvertierung
+---
 
-RAW‑Sichtbarmachung
+## 🚀 Features
 
-RAW‑Export in Public‑Formate
+### 🌀 81‑Hologramm
+- 81 neutrale RAW‑Frames (`RAW-1` bis `RAW-81`)
+- MARKT‑3‑konform
+- Konfliktfrei
+- Zeitstempel‑basiert
 
-Vergleichbarkeit zwischen RAW‑Objekten
+### 🎨 Anime‑Engine
+- 81 Anime‑Frames
+- Vital‑Pulse pro Frame
+- CO₂ / Wasser / Sauerstoff‑Einfluss
+- Shuffle‑Move pro Frame
 
-Norm‑kompatible RAW‑Struktur
+### 🔄 Shuffle Dancer
+- 81 Schritte
+- 10 Bewegungsrichtungen
+- Vitalitäts‑Modulation
+- Frame‑Verknüpfung
 
-RAWATOR zeigt nur öffentliche Inhalte — keine Engine‑Interna, keine System‑Mechanik.
+### 📊 Universal‑Messgerät
+- Vitalität
+- CO₂
+- Wasser
+- Sauerstoff
+- Hologramm‑Status
+- Anime‑Status
+- Shuffle‑Status
 
-🟦 Modul‑Charakter (RAW‑Achse)
-RAWATOR ist:
+### ✏️ Universal‑Editor
+- `edit(id, value)`
+- `shuffle(step, move)`
+- `reset()`
 
-rein RAW
+### 🌐 Beam‑Kernel
+- verbindet RAWATOR mit allen Repositories
+- erzeugt Beam‑Signale
+- aktiviert RAWATOR‑Start
 
-rein neutral
+---
 
-rein sichtbar
+## 🧬 Molekül‑System
 
-rein konvertierend
+RAWATOR nutzt drei Moleküle:
 
-ohne Moves
+| Molekül | Atome | Vitalität |
+|--------|--------|-----------|
+| H₂O    | H + H + O | neutral |
+| O₂     | O + O | stabil |
+| CO₂    | C + O + O | aktiv |
 
-ohne Engine‑Last
+Vitalität wird berechnet über:
 
-ohne Abhängigkeiten
+vital = (p + v + i) / 3
 
-RAWATOR ist ein Behälter und Konverter — kein Prozess.
 
-🟦 MARKT‑3‑Status
-MARKT‑3‑Status: aktiv  
-RAWATOR ist ein neutraler RAW‑Träger.
-Keine Auto‑Moves, keine Engine‑Last, keine Handelsauslösung.
+---
 
-Handels‑Rahmen: JA  
-Handels‑Aktion: NEIN
+## 🧩 System‑Architektur
 
-Gültig bis neue Aufstellung gesetzt wird.
+RAWATOR besteht aus folgenden Modulen:
 
-🟦 Warum RAWATOR handelssicher ist
-RAWATOR ist ein Konverter, kein Prozess.
-Konverter dürfen im MARKT‑3 handeln, weil sie:
+atom.js
+molecule.js
+rawator-81.js
+rawator-life.js
+beam.js
+rawator.js 
 
-Rahmen setzen
 
-Vergleichbarkeit herstellen
+Zusätzlich empfohlen für IKI1UC‑Integration:
 
-Systeme eichen
+NC.room.js
+NOAH.room.js
+RESPO.room.js
+SYS.room.js
+CORE_PIPE.js
 
-keine Aktionen auslösen
 
-RAWATOR trägt Handel, führt aber keinen Handel aus.
+---
 
-🟦 Modul‑Struktur
-README.md — Public‑Beschreibung
+## 🧠 IKI1UC‑Integration
 
-rawator.html — RAW‑Konvertierungs‑Layer
+RAWATOR kann in die Gen‑Stränge eingebunden werden:
 
-id.html — Ident‑Ebene
+### NC‑Raum
+- Orbit‑Frames
+- Station‑Frames
+- Engine‑Frames
 
-index.html — Public‑Frontend
+### NOAH‑Raum
+- Backup
+- Restore
+- Timeline
 
-Damit ist RAWATOR ein vollwertiges Public‑RAW‑Modul.
+### RESPO‑Räume
+- NC.RESPO
+- NC.WHIRL
+- NC.WinUAE
+- NC.link
 
-🟦 Funktions‑Beschreibung
-RAWATOR kann:
+### SYS‑Raum
+- SYS3 (IN / CORE / OUT)
+- TEM6 (Zeit / Gegenbewegung)
+- SYS9 (Orbit / Stabilisierung)
 
-RAW‑Material sichtbar machen
+### CORE‑Pipeline
+RAWATOR wird in die Pipes eingehängt:
 
-RAW‑Objekte konvertieren
+```js
+window.SYS.pipe3.push("RAWATOR");
+window.SYS.pipe6.push("RAWATOR");
+window.SYS.pipe9.push("RAWATOR");
 
-RAW‑Frames bereitstellen
+Vital
+CO₂
+Wasser
+O₂
+Anime
+Shuffle
+Hologramm
+Dance
+Messgerät
+Editor
+Reset
 
-Public‑Klarheit herstellen
+📦 Installation
+Repository klonen:
+git clone https://github.com/iki1uc/RAWATOR
 
-RAWATOR erzeugt keine Konflikte und keine System‑Abhängigkeiten.
+Dateien in ein beliebiges Repo kopieren:
 
-🟦 Namens‑Integrität
-Der Name RAWATOR ist:
+atom.js
+molecule.js
+rawator-81.js
+rawator-life.js
+beam.js
+rawator.js
+beam.json
 
-kurz
+index.html öffnen.
 
-klar
+🔧 API
+RAWATOR_LIFE.init()
+Startet das gesamte System.
 
-neutral
+RAWATOR_LIFE.status()
+Gibt Vitalität, Moleküle, Anime, Shuffle, Hologramm zurück.
 
-RAW‑Achse
+RAWATOR_LIFE.hologramProof()
+Erzeugt den 81‑Hologramm‑Beweis.
 
-Public‑Achse
+RAWATOR_LIFE.editor.edit(id, value)
+Bearbeitet Anime‑Vitalität.
 
-Darum bleibt der Name unverändert.
+RAWATOR_LIFE.editor.shuffle(step, move)
+Ändert Shuffle‑Bewegung.
 
-🟦 Kurzfassung
-RAWATOR ist MARKT‑3‑fähig
+RAWATOR_LIFE.editor.reset()
+Setzt Anime + Shuffle zurück.
 
-RAWATOR ist neutral & konfliktfrei
+🔮 Zukunft
+3D‑Hologramm
 
-RAWATOR trägt RAW‑Konvertierung
+Musik‑Shuffle‑Engine
 
-RAWATOR ist handelskonform
+Orbit‑Integration
 
-RAWATOR README ist gültig und stabil
+NC‑Engine‑Pulse
+
+DeepSeek‑Pipeline‑Synthese
+
+SYS9‑Stabilisierung
+
+HOLO‑81‑Visualisierung
+
+🧬 Credits
+IKI1UC · RAWATOR · DeepSeek‑Plan · SYS3‑6‑9 · NC‑Engine
+
