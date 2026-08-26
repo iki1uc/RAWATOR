@@ -98,3 +98,5 @@ window.SYS.CALC = function() {
     // 3. HOLO aktualisieren
     HOLO_ENGINE.update({
         vital: RAWATOR_LIFE.vital,
+window.SYS.ROOM.RESPO = RESPO_ROOM;
+console.log("CORE → RESPO Engine registriert");
