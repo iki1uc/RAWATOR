@@ -1,15 +1,18 @@
 // ============================================================
-// CORE · RAWATOR + AXIOM Integration
+// CORE · RAWATOR + AXIOM + HOLO Integration
 // IKI1UC · SYS3-6-9 · NC · RESPO · HOLO
 // ============================================================
 
 import RAWATOR_ID from "./RAWATOR.id.json" assert { type: "json" };
 import RAWATOR_GEO from "./RAWATOR.geo.json" assert { type: "json" };
 import { RAWATOR_LIFE } from "./rawator-life.js";
+
 import { AXIOM } from "./axiom.js";
+import { HOLO_ROOM } from "./HOLO.room.js";
+import { HOLO_ENGINE } from "./HOLO.engine.js";
 
 // ─────────────────────────────────────────────────────────────
-// 1. Sicherstellen, dass SYS existiert
+// 1. SYS-Struktur sicherstellen
 // ─────────────────────────────────────────────────────────────
 window.SYS = window.SYS || {};
 window.SYS.ROOM = window.SYS.ROOM || {};
@@ -28,18 +31,18 @@ window.SYS.ROOM.RAWATOR = {
 console.log("CORE → RAWATOR ID + GEO registriert");
 
 // ─────────────────────────────────────────────────────────────
-// 3. AXIOM registrieren
+// 3. AXIOM registrieren (einmalige Instanzen)
 // ─────────────────────────────────────────────────────────────
-window.SYS.PIPE.AXIOM = {
-    mana: AXIOM.MANA(),
-    aura: AXIOM.AURA(),
-    kraft: AXIOM.KRAFT()
-};
+const mana = AXIOM.MANA();
+const aura = AXIOM.AURA();
+const kraft = AXIOM.KRAFT();
+
+window.SYS.PIPE.AXIOM = { mana, aura, kraft };
 
 console.log("CORE → Axiome in Pipeline eingehängt");
 
 // ─────────────────────────────────────────────────────────────
-// 4. DeepSeek‑Pipeline: RAWATOR in pipe3/pipe6/pipe9 einhängen
+// 4. DeepSeek-Pipeline: RAWATOR in pipe3/pipe6/pipe9 einhängen
 // ─────────────────────────────────────────────────────────────
 window.SYS.PIPE.pipe3.push("RAWATOR");
 window.SYS.PIPE.pipe6.push("RAWATOR");
@@ -48,7 +51,7 @@ window.SYS.PIPE.pipe9.push("RAWATOR");
 console.log("CORE → RAWATOR in pipe3/pipe6/pipe9 eingehängt");
 
 // ─────────────────────────────────────────────────────────────
-// 5. NC‑Integration
+// 5. NC-Integration
 // ─────────────────────────────────────────────────────────────
 window.SYS.ROOM.NC = window.SYS.ROOM.NC || {};
 window.SYS.ROOM.NC.RAWATOR = {
@@ -57,16 +60,41 @@ window.SYS.ROOM.NC.RAWATOR = {
     holo: RAWATOR_LIFE.hologramm
 };
 
-console.log("CORE → RAWATOR in NC‑Raum eingehängt");
+console.log("CORE → RAWATOR in NC-Raum eingehängt");
 
 // ─────────────────────────────────────────────────────────────
-// 6. RESPO‑Integration
+// 6. RESPO-Integration
 // ─────────────────────────────────────────────────────────────
 window.SYS.ROOM.RESPO = window.SYS.ROOM.RESPO || {};
 window.SYS.ROOM.RESPO.RAWATOR = {
-    pulse: AXIOM.MANA().pulse(),
-    field: AXIOM.AURA().resonance(),
-    impact: AXIOM.KRAFT().impulse()
+    pulse: mana.pulse(),
+    field: aura.resonance(),
+    impact: kraft.impulse()
 };
 
-console.log("CORE → RAWATOR in RESPO‑Raum eingehängt");
+console.log("CORE → RAWATOR in RESPO-Raum eingehängt");
+
+// ─────────────────────────────────────────────────────────────
+// 7. HOLO-Integration
+// ─────────────────────────────────────────────────────────────
+window.SYS.ROOM.HOLO = HOLO_ROOM;
+window.SYS.PIPE.HOLO = HOLO_ENGINE;
+
+console.log("CORE → HOLO Engine registriert");
+
+// ─────────────────────────────────────────────────────────────
+// 8. NEUE CALC-PIPELINE (optimiert)
+// ─────────────────────────────────────────────────────────────
+window.SYS.CALC = function() {
+
+    // 1. Axiom-Pulse berechnen
+    const manaPulse = mana.pulse();
+    const auraPulse = aura.resonance();
+    const kraftPulse = kraft.impulse();
+
+    // 2. Vitalität aktualisieren
+    RAWATOR_LIFE.vital = (manaPulse + auraPulse + kraftPulse) / 3;
+
+    // 3. HOLO aktualisieren
+    HOLO_ENGINE.update({
+        vital: RAWATOR_LIFE.vital,
